@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bilal afzal shafi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: white;
+            color: black;
+            line-height: 1.6;
+            text-transform: lowercase;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .nav {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .nav a:hover {
+            opacity: 0.6;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 60px;
+            letter-spacing: -2px;
+        }
+
+        .interests {
+            margin-bottom: 80px;
+        }
+
+        .interests h2 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .interests-list {
+            font-size: 16px;
+            line-height: 1.8;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .interests-list span {
+            position: relative;
+        }
+
+        .interests-list span:not(:last-child)::after {
+            content: "•";
+            position: absolute;
+            right: -15px;
+            opacity: 0.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: black;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+            animation: wobble 3s ease-in-out infinite;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .social-link.inactive {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+
+        .page {
+            display: none;
+            padding-top: 100px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .list-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .item p {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        .item a {
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .item a:hover {
+            border-bottom-color: black;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 40px;
+            left: 20px;
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            .social-links {
+                gap: 20px;
+            }
+            
+            .nav {
+                position: static;
+                justify-content: center;
+                margin-bottom: 40px;
+            }
+            
+            .main-content {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="#" onclick="showPage('home')">home</a>
+            <a href="#" onclick="showPage('software')">software</a>
+            <a href="#" onclick="showPage('research')">research</a>
+        </nav>
+
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="main-content">
+                <h1 class="name">bilal afzal shafi</h1>
+                
+                <div class="interests">
+                    <h2>current interests (probably outdated):</h2>
+                    <div class="interests-list">
+                        <span>statistics</span>
+                        <span>machine learning</span>
+                        <span>LLMs</span>
+                        <span>poker</span>
+                        <span>streaming</span>
+                        <span>product</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/bilalafzalshafi" class="social-link" title="github" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/bilal-afzal-shafi/" class="social-link" title="linkedin" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="#" class="social-link inactive" title="x" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/bilal.afzal.s/" class="social-link" title="instagram" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.goodreads.com/user/show/183639647-bilal" class="social-link" title="goodreads" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M11.43 23.995c-3.608-.208-6.274-2.077-6.448-5.078.695.007 1.375-.013 2.07-.006.224 1.342 1.065 2.43 2.683 3.026 1.583.496 3.737.46 5.082-.174 1.351-.636 2.145-1.822 2.503-3.577.212-1.042.236-1.734.231-2.92l-.005-1.631h-.059c-1.245 2.564-3.315 3.53-5.59 3.475-5.74-.054-7.68-4.534-7.528-8.606.01-5.241 3.22-8.537 7.557-8.495 2.354-.14 4.605 1.362 5.554 3.37l.059.002.002-2.918 2.099.004-.002 15.717c-.193 7.04-4.376 7.89-8.209 7.811zm6.1-15.633c-.096-3.26-1.601-6.62-5.503-6.645-3.954-.017-5.625 3.592-5.604 6.85-.013 3.439 1.643 6.305 4.703 6.762 4.532.591 6.551-3.411 6.404-6.967z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://letterboxd.com/terors/films/" class="social-link" title="letterboxd" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M8.224 14.352a4.447 4.447 0 0 1-3.775 2.092C1.992 16.444 0 14.454 0 12s1.992-4.444 4.45-4.444c1.592 0 2.988.836 3.774 2.092-.427.682-.673 1.488-.673 2.352s.246 1.67.673 2.352zM15.101 12c0-.864.247-1.67.674-2.352-.786-1.256-2.183-2.092-3.775-2.092s-2.989.836-3.775 2.092c.427.682.674 1.488.674 2.352s-.247 1.67-.674 2.352c.786 1.256 2.183 2.092 3.775 2.092s2.989-.836 3.775-2.092A4.42 4.42 0 0 1 15.1 12zm4.45-4.444a4.447 4.447 0 0 0-3.775 2.092c.427.682.673 1.488.673 2.352s-.246 1.67-.673 2.352a4.447 4.447 0 0 0 3.775 2.092C22.008 16.444 24 14.454 24 12s-1.992-4.444-4.45-4.444z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://open.spotify.com/user/nb6em9clvf4xj1ree63z993e8?si=DaRmYPJKTOqj27bxzzYr2w&nd=1&dlsi=5a2444f75e784fae" class="social-link" title="spotify" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="#" class="social-link inactive" title="email">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M0 4v16h24V4H0zm22 14H2V6.236l10 5.764L22 6.236V18zm-20-12h16l-8 4.618L2 6z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software Page -->
+        <div id="software" class="page">
+            <a href="#" onclick="showPage('home')" class="back-link">← back</a>
+            <h1>software</h1>
+            <div class="list-container">
+                <div class="item">
+                    <h3>personal website</h3>
+                    <p>this. </p>
+                </div>
+                <div class="item">
+                    <h3>the ape</h3>
+                    <p>randomize and save predictions for smogon tournaments. <a href="https://chromewebstore.google.com/detail/the-ape/bbnmgpobjhniahieipcjmgbhiphgllma?authuser=2&hl=en" target="_blank" rel="noopener noreferrer">view project</a></p>
+                </div>
+                <div class="item">
+                    <h3>superhuman benchmark</h3>
+                    <p>human benchmark but more difficult. <a href="https://bilalafzalshafi.github.io/superhuman-benchmark/" target="_blank" rel="noopener noreferrer">view project</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Page -->
+        <div id="research" class="page">
+            <a href="#" onclick="showPage('home')" class="back-link">← back</a>
+            <h1>research</h1>
+            <div class="list-container">
+                <div class="item">
+                    <h3>ongoing research</h3>
+                    <p>adapting semiparametric bayesian regression (learning data transformations to handle non-gaussian response distributions) to bart for nonparametric flexibility </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Add stagger to wobble animation
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach((link, index) => {
+            link.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
